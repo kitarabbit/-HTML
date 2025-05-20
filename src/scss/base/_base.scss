@@ -1,0 +1,104 @@
+/* -------------
+    ALL USE
+------------- */
+
+/* html & body 
+-------------------*/
+
+html, body {
+    width: 100%;
+    font-family: $font-stack;
+    font-size: 16px;
+    background-color: #000;
+    @include mq(1366, max) {
+        font-size: win(16);
+    }
+    @include mq(768, max) {
+        font-size: mob(24);
+    }
+}
+
+html {
+    -webkit-text-size-adjust: 100%;
+    background-color: #fff;
+    overflow-x: hidden;
+}
+
+
+/* 其他通用設定
+-------------------*/
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+a {
+    display: block;
+    text-decoration: none;
+}
+
+.c {
+    clear: both;
+}
+
+.table {
+    display: table;
+}
+
+.tr {
+    display: table-row;
+}
+
+.th,
+.td {
+    display: table-cell;
+    vertical-align: middle;
+}
+
+.hide {
+    display: none !important;
+}
+
+.ab {
+    position: absolute;
+}
+
+.clearfix:after {
+    content: "";
+    display: block;
+    clear: both;
+}
+
+.float-l {
+    float: left;
+}
+
+.float-r {
+    float: right;
+}
+
+._m {
+    display: none;
+    @include mq(768, max) {
+        display: block;
+    }
+}
+
+._pc {
+    @include mq(768, max) {
+        display: none !important;
+    }
+}
+
+.autoW {
+    width: auto;
+}
+
+
+
+
+
+
+
+

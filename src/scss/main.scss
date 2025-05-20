@@ -1,0 +1,35 @@
+@charset "utf-8";
+
+/*===== base =====*/
+
+// 設定類
+@import "base/variables";
+@import "base/font";
+@import "base/mixins";
+@import "base/functions";
+
+
+// 基礎樣式
+@import "base/reset";
+@import "base/media";
+@import "base/keyframes";
+@import "base/base";
+
+
+/*===== 主結構 =====*/
+
+// 元件
+@import "components/loading";
+@import "components/lightbox";
+@import "components/elements";
+
+// 版型結構
+@import "layout/header";
+@import "layout/footer";
+@import "layout/layout";
+
+// 頁面樣式
+@import "pages/index";
+
+
+

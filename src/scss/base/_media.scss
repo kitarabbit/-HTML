@@ -1,0 +1,52 @@
+/* -----------------
+    media query
+-------------------- */
+
+@mixin mq($breakpoint, $type: max) {
+    @if $type == between {
+        @if length($breakpoint) == 2 {
+            $min: nth($breakpoint, 1);
+            $max: nth($breakpoint, 2);
+            $min-value: if(unitless($min), $min + px, $min);
+            $max-value: if(unitless($max), $max + px, $max);
+
+            @media screen and (min-width: #{$min-value}) and (max-width: #{$max-value}) {
+                @content;
+            }
+        } @else {
+            @error "The 'between' type requires a list with exactly two breakpoints (e.g., (600, 1200)).";
+        }
+    } @else {
+        $value: if(unitless($breakpoint), $breakpoint + px, $breakpoint);
+
+        @if $type == max {
+            @media screen and (max-width: #{$value}) {
+                @content;
+            }
+        } @else if $type == min {
+            @media screen and (min-width: #{$value}) {
+                @content;
+            }
+        } @else {
+            @error "Invalid type. Use 'min', 'max', or 'between'.";
+        }
+    }
+}
+
+
+
+
+// 使用範例
+.example {
+    @include mq(768, max) {
+        font-size: 14px; // max-width: 768px
+    }
+
+    @include mq(768, min) {
+        font-size: 16px; // min-width: 768px
+    }
+
+    @include mq((600, 1200), between) {
+        font-size: 24px;
+    }
+}

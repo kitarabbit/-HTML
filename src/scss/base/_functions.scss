@@ -1,0 +1,40 @@
+/* -------------
+    function
+------------- */
+
+// vw換算 
+@function full($num: 1) {
+    @return $num * 100 / $baseFullW + vw;
+}
+
+@function win($num: 1) {
+    @return $num * 100 / $baseWinW + vw;
+}
+
+@function tab($num: 1) {
+    @return $num * 100 / $baseTabW + vw;
+}
+
+@function mob($num: 1) {
+    @return $num * 100 / $baseMobileW + vw;
+}
+
+// rem換算 
+@function rem($px, $context: 16) {
+    @return ($px / $context) * 1rem; // 使用 * 1rem 更標準
+}
+
+// em換算 
+@function em($px, $context: 16) {
+    @return ($px / $context) + em;
+}
+
+.example {
+    font-size: em(24); // 會根據預設上下文 16px 計算
+    padding: em(12, 24); // 明確指定上下文為 24px
+}
+
+// 百分比換算 
+@function per($value, $total: 100) {
+    @return ($value / $total) * 100%;
+}
