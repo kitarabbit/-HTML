@@ -156,6 +156,13 @@ Prepros 可設定這支輸出到：
 `js/script.js`
 
 
+## 切版設計準則
+
+本模板的斷點、根字級、`rem()` / `mob()` / `tab()` 換算方式與 helper class 使用規則，請參考：
+
+[切版斷點設計準則.md](./切版斷點設計準則.md)
+
+
 ## 版本紀錄
 
 詳見 [CHANGELOG.md](./CHANGELOG.md)。
