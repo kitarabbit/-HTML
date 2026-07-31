@@ -36,6 +36,10 @@ HTML/
 │
 ├── src/                                  # 原始開發檔案目錄 (❗ 只從這裡開發，不直接改成品)
 │   ├── js/
+│   │   ├── components/                    # 自寫JS元件
+│   │   │   └── lightbox.js                
+│   │   ├── core/                          # 自寫JS核心流程
+│   │   │   └── loading.js                 
 │   │   ├── lib/                          # 外掛原始JS檔案
 │   │   │   ├── aos.js                    
 │   │   │   ├── gsap.min.js                
@@ -43,6 +47,10 @@ HTML/
 │   │   │   ├── jquery-3.3.1.min.js        
 │   │   │   ├── lazyload.min.js            
 │   │   │   └── slick.min.js               
+│   │   ├── pages/                         # 各頁面自寫JS
+│   │   │   └── index.js                   
+│   │   ├── script.bundle.js               # 複雜案子拆檔入口
+│   │   ├── script.simple.js               # 小案子單檔版
 │   │   └── vendor.js                      # 外掛合併入口（使用@prepros-prepend串接lib內外掛）
 │   │
 │   ├── scss/                              # SCSS原始樣式開發資料夾
@@ -101,11 +109,54 @@ HTML/
 - **外掛管理**：
   - 原始檔放在 `src/js/lib/`
   - 外掛使用 `src/js/vendor.js`，透過 `@prepros-prepend` 指定合併順序，打包成 `/js/vendor.min.js`
-  - 所有外掛lib已分開管理，可使用自己習慣的方式再打包重組或直接掛上
+  - 第三方 vendor 建議只做串接，不要再交給 Prepros 做 Babel / 壓縮，避免外掛全域物件被改壞。
 
 - **自定義功能**：
-  - 開發於 `js/script.js`
-  - 不需要經過打包，直接引入使用
+  - 成品檔為 `js/script.js`
+  - 小案子可使用 `src/js/script.simple.js`，所有自寫JS集中在單檔。
+  - 複雜案子可使用 `src/js/script.bundle.js`，透過 `@prepros-prepend` 串接 `core/`、`components/`、`pages/` 內的檔案。
+  - 自寫 script 可交給 Prepros concat / minify；除非需要支援很舊瀏覽器，否則通常不需要 Babel。
+
+
+# JS 使用方式
+
+這份模板提供兩種自寫 JS 管理方式，依專案大小擇一使用。
+
+## 小案子單檔版
+
+使用：
+
+`src/js/script.simple.js`
+
+適合只有一頁、互動較少、JS 不需要拆成多個元件的案子。
+
+Prepros 可設定這支輸出到：
+
+`js/script.js`
+
+## 複雜案子拆檔版
+
+使用：
+
+`src/js/script.bundle.js`
+
+這支只負責設定 Prepros prepend 順序：
+
+```js
+//@prepros-prepend core/loading.js
+//@prepros-prepend components/lightbox.js
+//@prepros-prepend pages/index.js
+```
+
+實際功能放在：
+
+- `src/js/core/`
+- `src/js/components/`
+- `src/js/pages/`
+
+Prepros 可設定這支輸出到：
+
+`js/script.js`
 
 
 

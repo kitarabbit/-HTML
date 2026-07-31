@@ -1,4 +1,4 @@
-/* -----------------
+﻿/* -----------------
     media query
 -------------------- */
 
@@ -36,17 +36,21 @@
 
 
 
-// 使用範例
+// 斷點使用範例
 .example {
-    @include mq(768, max) {
-        font-size: 14px; // max-width: 768px
+    @include mq(640, max) {
+        font-size: 14px; // Mobile：0px～640px
     }
 
-    @include mq(768, min) {
-        font-size: 16px; // min-width: 768px
+    @include mq((641, 767), between) {
+        font-size: 15px; // Large Mobile：641px～767px
     }
 
-    @include mq((600, 1200), between) {
-        font-size: 24px;
+    @include mq((768, 1024), between) {
+        font-size: 16px; // Tablet：768px～1024px
+    }
+
+    @include mq(1025, min) {
+        font-size: 18px; // Desktop：1025px 以上
     }
 }

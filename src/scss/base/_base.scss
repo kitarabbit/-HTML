@@ -2,19 +2,22 @@
     ALL USE
 ------------- */
 
-/* html & body 
+/* html & body
 -------------------*/
 
-html, body {
+html,
+body {
     width: 100%;
     font-family: $font-stack;
     font-size: 16px;
-    background-color: #000;
-    @include mq(1366, max) {
-        font-size: win(16);
+    @include mq(1024, max) {
+        font-size: tab(16);
     }
-    @include mq(768, max) {
-        font-size: mob(24);
+    @include mq(767, max) {
+        font-size: mob(16);
+    }
+    @include mq(640, max) {
+        font-size: mob(16);
     }
 }
 
@@ -24,13 +27,40 @@ html {
     overflow-x: hidden;
 }
 
+// 統一盒模型，避免寬度加上 padding / border 後超出預期。
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
 
-/* 其他通用設定
+
+/* 全站共用基礎設定
 -------------------*/
 
-img {
+// 圖片與媒體元素預設改為 block，避免 inline 圖片下方產生空隙。
+img,
+picture,
+svg {
+    display: block;
     max-width: 100%;
     height: auto;
+}
+
+// 表單元件繼承專案字體設定。
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+// 清除 button 預設樣式，方便後續套用專案按鈕樣式。
+button {
+    padding: 0;
+    border: 0;
+    background: none;
+    cursor: pointer;
 }
 
 a {
@@ -78,27 +108,81 @@ a {
     float: right;
 }
 
-._m {
-    display: none;
-    @include mq(768, max) {
-        display: block;
+// 視覺上隱藏內容，但保留給螢幕閱讀器讀取。
+.visually-hidden {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0 0 0 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+// 尊重使用者的減少動態效果設定。
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
     }
 }
 
+// 常用文字置中工具。
+.text-center {
+    text-align: center;
+}
+
+// 常用圖片填滿工具，適合固定比例圖片容器。
+.img-cover {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+// 顯示用 helper
+// ._pc：只在 Desktop 顯示，1025px 以上。
 ._pc {
-    @include mq(768, max) {
+    @include mq(1024, max) {
         display: none !important;
+    }
+}
+
+// ._not-pc：在 Tablet / Large Mobile / Mobile 顯示，1024px 以下。
+._not-pc {
+    display: none !important;
+    @include mq(1024, max) {
+        display: block !important;
+    }
+}
+
+// ._m：在 Mobile / Large Mobile 顯示，767px 以下。
+._m {
+    display: none !important;
+    @include mq(767, max) {
+        display: block !important;
+    }
+}
+
+// ._not-m：在 Tablet / Desktop 顯示，768px 以上。
+._not-m {
+    @include mq(767, max) {
+        display: none !important;
+    }
+}
+
+// ._tab：只在 Tablet 顯示，768px～1024px。
+._tab {
+    display: none !important;
+    @include mq((768, 1024), between) {
+        display: block !important;
     }
 }
 
 .autoW {
     width: auto;
 }
-
-
-
-
-
-
-
-

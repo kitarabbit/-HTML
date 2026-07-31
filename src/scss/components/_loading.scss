@@ -23,7 +23,7 @@
         border-radius: 50%;
         background-color: #ffffff;
         margin: 0 5px;
-        @include mq(768, max) {
+        @include mq(767, max) {
             width: 3vw;
             height: 3vw;
         }
