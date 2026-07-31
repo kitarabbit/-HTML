@@ -1,11 +1,9 @@
 ## HTML 專案說明
 
-本專案為靜態HTML開發用的模板，包含CSS/JS管理、SCSS編譯、外掛打包，  
+本專案為靜態HTML開發用的模板，包含CSS/JS管理、SCSS編譯、外掛打包，
 此版使用prepros為轉譯工具
 
 
-
----
 
 
 
@@ -17,19 +15,19 @@ HTML/
 │   ├── fonts/                            # for slick 外掛字型 (若無使用slick可一併移除)
 │   ├── ajax-loader.gif                   # for slick 外掛 loading圖示 (若無使用slick可一併移除)
 │   ├── main.min.css                      # 主樣式，從src/scss/main.scss編譯而來
-│   ├── main.min.css.map                  
+│   ├── main.min.css.map
 │   ├── plugin.css                        # 外掛相關樣式，從src/scss/plugin.scss編譯而來
-│   └── plugin.css.map                    
+│   └── plugin.css.map
 │
 ├── fonts/                                # 額外網站用字體請放這裡 (不需要可移除)
 │
-├── images/                               
+├── images/
 │   └── m/                                # 行動版（Mobile專用）圖片資料夾
 │
 ├── include/                              # 共用HTML
-│   ├── lightbox/                         
-│   ├── footer.html                       
-│   └── header.html                       
+│   ├── lightbox/
+│   ├── footer.html
+│   └── header.html
 │
 ├── js/                                   # 編譯後的JS成品資料夾
 │   ├── script.js                         # 自定義JS
@@ -38,18 +36,18 @@ HTML/
 ├── src/                                  # 原始開發檔案目錄 (❗ 只從這裡開發，不直接改成品)
 │   ├── js/
 │   │   ├── components/                    # 自寫JS元件
-│   │   │   └── lightbox.js                
+│   │   │   └── lightbox.js
 │   │   ├── core/                          # 自寫JS核心流程
-│   │   │   └── loading.js                 
+│   │   │   └── loading.js
 │   │   ├── lib/                          # 外掛原始JS檔案
-│   │   │   ├── aos.js                    
-│   │   │   ├── gsap.min.js                
-│   │   │   ├── imagesloaded.js            
-│   │   │   ├── jquery-3.3.1.min.js        
-│   │   │   ├── lazyload.min.js            
-│   │   │   └── slick.min.js               
+│   │   │   ├── aos.js
+│   │   │   ├── gsap.min.js
+│   │   │   ├── imagesloaded.js
+│   │   │   ├── jquery-3.3.1.min.js
+│   │   │   ├── lazyload.min.js
+│   │   │   └── slick.min.js
 │   │   ├── pages/                         # 各頁面自寫JS
-│   │   │   └── index.js                   
+│   │   │   └── index.js
 │   │   ├── script.bundle.js               # 複雜案子拆檔入口
 │   │   ├── script.simple.js               # 小案子單檔版
 │   │   └── vendor.js                      # 外掛合併入口（使用@prepros-prepend串接lib內外掛）
@@ -76,25 +74,22 @@ HTML/
 │   │   │   └── _layout.scss                # 全站通用容器、section設定(wrapper, container等)
 │   │   │
 │   │   ├── pages/                          # 各頁面專用樣式
-│   │   │   └── _index.scss                 
+│   │   │   └── _index.scss
 │   │   │
 │   │   ├── plugin/                         # 外掛樣式
-│   │   │   ├── _animations.scss            
-│   │   │   ├── _core.scss                  
-│   │   │   ├── _easing.scss                
-│   │   │   ├── aos.scss                    
-│   │   │   ├── slick-theme.scss            
-│   │   │   └── slick.scss                  
+│   │   │   ├── _animations.scss
+│   │   │   ├── _core.scss
+│   │   │   ├── _easing.scss
+│   │   │   ├── aos.scss
+│   │   │   ├── slick-theme.scss
+│   │   │   └── slick.scss
 │   │   │
 │   │   ├── main.scss                       # scss主入口，匯入base、components、layout、pages等
 │   │   └── plugin.scss                     # 外掛樣式入口，匯入plugin相關scss
 │
-├── index.html                             
+├── index.html
 ```
 
-
-
----
 
 
 
@@ -161,8 +156,10 @@ Prepros 可設定這支輸出到：
 `js/script.js`
 
 
+## 版本紀錄
 
----
+詳見 [CHANGELOG.md](./CHANGELOG.md)。
+
 
 
 
