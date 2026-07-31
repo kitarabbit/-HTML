@@ -1,4 +1,4 @@
-### HTML 專案說明 ###
+## HTML 專案說明
 
 本專案為靜態HTML開發用的模板，包含CSS/JS管理、SCSS編譯、外掛打包，  
 此版使用prepros為轉譯工具
@@ -9,7 +9,7 @@
 
 
 
-### 專案目錄結構 ###
+## 專案目錄結構
 
 ```text
 HTML/
@@ -98,15 +98,15 @@ HTML/
 
 
 
-### 開發流程簡述 ### 
+## 開發流程簡述
 
-# SCSS 編譯
+### SCSS 編譯
 
 - **主站樣式**：從 `src/scss/main.scss` 編譯 ➔ 輸出到 `css/main.min.css`
 - **外掛樣式**：從 `src/scss/plugin.scss` 編譯 ➔ 輸出到 `css/plugin.css`
 
 
-# JavaScript 打包
+### JavaScript 打包
 
 - **外掛管理**：
   - 原始檔放在 `src/js/lib/`
@@ -120,11 +120,11 @@ HTML/
   - 自寫 script 可交給 Prepros concat / minify；除非需要支援很舊瀏覽器，否則通常不需要 Babel。
 
 
-# JS 使用方式
+### JS 使用方式
 
 這份模板提供兩種自寫 JS 管理方式，依專案大小擇一使用。
 
-## 小案子單檔版
+#### 小案子單檔版
 
 使用：
 
@@ -136,7 +136,7 @@ Prepros 可設定這支輸出到：
 
 `js/script.js`
 
-## 複雜案子拆檔版
+#### 複雜案子拆檔版
 
 使用：
 
@@ -166,7 +166,7 @@ Prepros 可設定這支輸出到：
 
 
 
-###  注意事項  ### 
+## 注意事項
 
 - 請勿直接修改 /css/ 和 /js/vendor.min.js 成品檔案
   - SCSS、外掛請從 /src/ 原始檔修改再編譯。
