@@ -11,6 +11,7 @@
 
 ### 專案目錄結構 ###
 
+```text
 HTML/
 ├── css/                                  # 編譯後的CSS成品資料夾
 │   ├── fonts/                            # for slick 外掛字型 (若無使用slick可一併移除)
@@ -89,6 +90,7 @@ HTML/
 │   │   └── plugin.scss                     # 外掛樣式入口，匯入plugin相關scss
 │
 ├── index.html                             
+```
 
 
 
